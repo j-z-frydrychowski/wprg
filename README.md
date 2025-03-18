@@ -1,3 +1,4 @@
-# warg
+#WPRG  
 Repozytorium na potrzeby przedmiotu
-Nowa zmiana w plikue
+
+Każde z zadań znajduje się w odpowiadającym folderze - w przypadku stron, które zawerają więcej niż jeden plik jest stworzony odpowiedni podfolder
