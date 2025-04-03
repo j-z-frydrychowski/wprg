@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zadanie 4</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: lightgray;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    main {
+      display: flex;
+      flex-grow: 1;
+      padding: 20px;
+    }
+
+    .left-section {
+      flex: 1;
+      padding-right: 20px;
+    }
+
+    .right-section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr) 2fr;
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 50px;
+      grid-row-gap: 50px;
+    }
+
+    .right-section div {
+      border: 1px solid gray;
+    }
+
+    footer {
+      background-color: lightgray;
+      text-align: center;
+      padding: 10px;
+    }
+    .div1 { grid-area: 1 / 1 / 2 / 2; }
+    .div2 { grid-area: 1 / 2 / 2 / 3; }
+    .div3 { grid-area: 2 / 1 / 3 / 3; }
+    .div4 { grid-area: 1 / 3 / 3 / 4; }
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <ul>
+      <li><a href="#">Strona główna</a></li>
+      <li><a href="#">O nas</a></li>
+      <li><a href="#">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="left-section">
+    <h1>Witaj na naszej skomplikowanej stronie!</h1>
+  </div>
+  <div class="right-section">
+    <div class="div1">
+      <h2>Funkcja 1</h2>
+      <p>Opis funkcji 1...</p>
+    </div>
+    <div class="div2">
+      <h2>Funkcja 2</h2>
+      <p>Opis funkcji 2...</p>
+    </div>
+    <div class="div4">
+      <h2>Dodatkowe informacje</h2>
+      <p>...</p>
+    </div>
+    <div class="div3">
+      <h2>Funkcja 3</h2>
+      <p>Opis funkcji 3...</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2023 Skomplikowana strona z flexboxem. Wszelkie prawa zastrzeżone.</p>
+</footer>
+</body>
+</html>
