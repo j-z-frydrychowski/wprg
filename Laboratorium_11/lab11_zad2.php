@@ -53,4 +53,59 @@ class Product
     }
 }
 
+class Cart
+{
+    private array $products;
+
+    public function __construct()
+    {
+        $this->products = [];
+    }
+
+    public function addProduct(Product $product): void
+    {
+        $this->products[] = $product;
+    }
+
+    public function removeProduct(Product $productToRemove): void
+    {
+        foreach ($this->products as $key => $productInCart) {
+            if ($productInCart === $productToRemove) {
+                unset($this->products[$key]);
+                $this->products = array_values($this->products);
+                return;
+            }
+        }
+    }
+
+    public function getTotal(): float
+    {
+        $totalPrice = 0.0;
+        foreach ($this->products as $product) {
+            $totalPrice += $product->getPrice() * $product->getQuantity();
+        }
+        return $totalPrice;
+    }
+
+    public function __toString(): string
+    {
+        if (empty($this->products)) {
+            return "Cart is empty.\nTotal price: 0";
+        }
+
+        $output = "Products in cart:\n";
+        foreach ($this->products as $product) {
+            $output .= $product->__toString() . "\n"; // Wykorzystujemy metodę __toString() z klasy Product
+        }
+        $output .= "Total price: " . $this->getTotal();
+        return $output;
+    }
+
+    public function getProducts(): array
+    {
+        return $this->products;
+    }
+}
+
+
 ?>
