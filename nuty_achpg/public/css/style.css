@@ -1,0 +1,188 @@
+/* Plik: public/css/style.css */
+
+/* === 1. ZMIENNE KOLORÓW I STYLE GLOBALNE === */
+
+/* :root pozwala zdefiniować zmienne CSS, których możemy używać w całym pliku. */
+/* Ułatwia to zmianę kolorystyki w przyszłości. */
+:root {
+    --bg-dark: #1a1a2e;        /* Ciemny granat/fiolet jako główne tło */
+    --bg-light: #16213e;       /* Nieco jaśniejszy dla paneli i kontenerów */
+    --text-primary: #e0e1dd;   /* Złamana biel dla tekstu */
+    --accent-blue: #3a7bd5;     /* Jaśniejszy niebieski dla linków i akcji */
+    --accent-red: #e94560;       /* Czerwony dla błędów i akcji usuwania */
+    --accent-green: #16a085;    /* Zielony dla komunikatów o sukcesie */
+    --accent-yellow: #f39c12;   /* Pomarańczowy/żółty dla informacji */
+}
+
+body {
+    background-color: var(--bg-dark); /* Użycie zmiennej tła */
+    color: var(--text-primary);       /* Użycie zmiennej koloru tekstu */
+    font-family: sans-serif;          /* Prosta, czytelna, bezszeryfowa czcionka */
+    line-height: 1.6;                 /* Wysokość linii dla lepszej czytelności */
+    margin: 0;                        /* Usunięcie domyślnego marginesu body */
+}
+
+/* Główny kontener, w którym jest cała treść strony */
+.container {
+    max-width: 960px;         /* Maksymalna szerokość treści */
+    margin: 20px auto;        /* 20px marginesu na górze/dole, 'auto' na bokach wyśrodkowuje */
+    padding: 20px;            /* Wewnętrzny odstęp (margines) */
+    background-color: var(--bg-light); /* Użycie jaśniejszego tła dla kontenera */
+    border-radius: 8px;       /* Zaokrąglone rogi */
+}
+
+
+/* === 2. TYPOGRAFIA (NAGŁÓWKI I LINKI) === */
+
+h1, h2, h3 {
+    color: var(--accent-blue); /* Użycie koloru akcentu dla nagłówków */
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+a {
+    color: var(--accent-blue);
+    text-decoration: none;      /* Usunięcie domyślnego podkreślenia linków */
+}
+
+a:hover {
+    text-decoration: underline; /* Dodanie podkreślenia po najechaniu myszką */
+}
+
+
+/* === 3. NAWIGACJA (W HEADER.PHP) === */
+
+header nav ul {
+    list-style-type: none; /* Usuwa kropki z listy (<ul>) */
+    padding: 0;
+    margin: 0;
+    display: flex;         /* Używa Flexbox do ułożenia elementów nawigacji w jednej linii */
+    flex-wrap: wrap;       /* Pozwala na zawijanie linków do nowej linii na mniejszych ekranach */
+    gap: 20px;             /* Odstęp 20px między elementami nawigacji */
+}
+
+header nav ul li a {
+    font-weight: bold;     /* Pogrubienie tekstu linków w nawigacji */
+}
+
+
+/* === 4. ALERTY (KOMUNIKATY O BŁĘDACH/SUKCESIE) === */
+
+/* Wspólny styl dla wszystkich alertów */
+.alert {
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+/* Styl dla komunikatu o sukcesie */
+.alert.alert-success { /* Styl dla elementu, który ma JEDNOCZEŚNIE klasę 'alert' i 'alert-success' */
+    color: #fff;
+    background-color: var(--accent-green);
+    border-color: #128a70;
+}
+
+/* Styl dla komunikatu o błędzie */
+.alert.alert-error {
+    color: #fff;
+    background-color: var(--accent-red);
+    border-color: #c93d54;
+}
+
+/* Styl dla komunikatu informacyjnego */
+.alert.alert-info, .alert.alert-warning {
+    color: #000;
+    background-color: var(--accent-yellow);
+    border-color: #e08e0b;
+}
+/* === 5. STYLE FORMULARZY === */
+
+/* Zapewnia odstęp między grupami pól w formularzu (każdy <div> w formularzu) */
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block; /* Etykieta będzie w osobnej linii nad polem input */
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Wspólne style dla większości pól tekstowych, e-mail, haseł, daty oraz list rozwijanych */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select {
+    width: 100%; /* Pole zajmie 100% szerokości swojego kontenera */
+    padding: 10px;
+    background-color: var(--bg-dark);      /* Tło pola - ciemne, jak tło strony */
+    color: var(--text-primary);            /* Kolor tekstu wpisywanego - jasny */
+    border: 1px solid var(--accent-blue);  /* Ramka w kolorze akcentu */
+    border-radius: 4px;                    /* Lekko zaokrąglone rogi */
+    box-sizing: border-box;                /* WAŻNE: padding nie zwiększy szerokości ponad 100% */
+}
+
+/* Style dla przycisków */
+button[type="submit"],
+.button { /* Dodajemy też klasę .button, aby linki mogły wyglądać jak przyciski */
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--accent-blue);
+    color: #fff; /* Biały tekst na przycisku */
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; /* Dla linków (<a>) z klasą .button */
+    transition: background-color 0.2s ease; /* Płynne przejście koloru tła */
+}
+
+/* Efekt po najechaniu myszką */
+button[type="submit"]:hover,
+.button:hover {
+    background-color: #5f9ea0; /* Przygaszony turkusowy - jaśniejszy odcień */
+}
+
+
+/* === 6. STYLE TABEL === */
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Łączy ramki komórek w jedną, czystą linię */
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid var(--accent-blue); /* Ramka dla komórek w kolorze akcentu */
+    padding: 12px;
+    text-align: left;
+}
+
+/* Nagłówek tabeli */
+thead th {
+    background-color: var(--accent-blue);
+    color: #fff; /* Biały tekst */
+    font-weight: bold;
+}
+
+/* Efekt "pasków zebry" dla wierszy - co drugi wiersz ma nieco inne tło dla czytelności */
+tbody tr:nth-child(even) {
+    background-color: var(--bg-dark); /* Tło takie samo jak tło strony */
+}
+
+/* Podświetlenie całego wiersza po najechaniu myszką */
+tbody tr:hover {
+    background-color: #3d4a66; /* Ciemny, niebiesko-szary */
+}
+
+.button-danger {
+    background-color: var(--accent-red);
+}
+.button-danger:hover {
+    background-color: #c93d54; /* Ciemniejszy odcień czerwonego */
+}
